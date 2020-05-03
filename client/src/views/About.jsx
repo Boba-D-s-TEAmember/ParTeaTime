@@ -11,10 +11,10 @@ function About(props) {
         <h2 className="header4">We are so happy to have you here! We created this as a way to connect different boba or tea enthusiasts together. We will connect people with others who are “drinking” the same boba flavors as them to chat, and share anything related to boba. We will give you the option to upload your own photos, captions and titles. Grab a comforting hot drink and get the coffee shop experience.</h2>
       <div className="test">
         <div className="button">
-        <button>Take the Bobba Quiz</button>
+        <button onClick={e =>  window.location.href='/BobaQuiz'} >Take the Boba Quiz</button>
         </div>
         <div className="button">
-        <button>Go to Our Feed</button>
+        <button onClick={e =>  window.location.href='/Feed'}>Go to Our Feed</button>
         </div>
       </div>
       </div>

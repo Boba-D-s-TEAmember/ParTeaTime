@@ -1,4 +1,5 @@
 import React from "react";
+import logo from '../multiboba.png';
 import { useState } from "react";
 
 
@@ -19,8 +20,9 @@ function Login(props) {
       </div>
 
       <div className="button">
-      <button /* onClick={} */>Enter</button>
+      <button onClick={e =>  window.location.href='/About'} >Enter</button>
       </div>
+      <div className="imgo"><img src={logo} className="img" alt="logo" /></div>
     </div>
   );
 }
