@@ -69,3 +69,14 @@ body {
   background-color: aliceblue;
 
 }
+img{
+  height: 15rem;
+}
+
+.imgo{
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  margin-top: 1rem;
+  object-fit: contain;
+}
