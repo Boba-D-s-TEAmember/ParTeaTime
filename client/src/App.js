@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Login from "./views/Login";
 import About from "./views/About";
 import Feed from "./views/Feed";
+import BobaQuiz from "./views/BobaQuiz";
 import "./App.css";
 import "typeface-gamja-flower";
 import "typeface-open-sans";
@@ -23,6 +24,9 @@ function App() {
             <li>
               <Link to="/feed">Feed</Link>
             </li>
+            <li>
+              <Link to="/quiz">Quiz</Link>
+            </li>
           </ul>
         </nav>
 
@@ -34,6 +38,9 @@ function App() {
           </Route>
           <Route path="/feed">
             <Feed />
+          </Route>
+          <Route path="/quiz">
+            <BobaQuiz />
           </Route>
           <Route path="/">
             <Login />
