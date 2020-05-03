@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
+
 function Login(props) {
   const [name, setName] = useState("");
 
@@ -10,11 +11,15 @@ function Login(props) {
 
       <div className="test">
         <h2 className="header2">Name</h2>
-        <input className="textbox" type="text"></input>
+        <input
+          className="textbox"
+          type="text"
+          onChange={(e) => setName(e.target.value)}
+        ></input>
       </div>
 
       <div className="button">
-        <button>Enter</button>
+      <button /* onClick={} */>Enter</button>
       </div>
     </div>
   );
