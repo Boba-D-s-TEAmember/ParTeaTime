@@ -5,11 +5,12 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Login from "./views/Login";
 import About from "./views/About";
 import Feed from "./views/Feed";
+import MakePost from './views/MakePost'
 import "./App.css";
 import "typeface-gamja-flower";
 import "typeface-open-sans";
 
-function App() {
+function App(props) {
   return (
     <Router>
       <div>
@@ -24,20 +25,27 @@ function App() {
             <li>
               <Link to="/feed">Feed</Link>
             </li>
+            <li>
+              <Link to="/post">Make Post</Link>
+            </li>
+            
           </ul>
         </nav>
 
         {/* A <Switch> looks through its children <Route>s and
           renders the first one that matches the current URL. */}
         <Switch>
-          <Route path="/about">
+          <Route exact path="/about">
             <About />
           </Route>
-          <Route path="/feed">
+          <Route exact path="/feed">
             <Feed />
           </Route>
-          <Route path="/">
+          <Route exact path="/">
             <Login />
+          </Route>
+          <Route exact path="/post">
+            <MakePost data={props} />
           </Route>
         </Switch>
       </div>
