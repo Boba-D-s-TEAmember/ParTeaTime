@@ -3,6 +3,8 @@ const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const multer = require('multer')
+
 require("dotenv/config");
 const PORT = process.env.PORT || 8000;
 const DB_URI = process.env.DB_URI;
@@ -16,10 +18,16 @@ mongoose.connect(
     }
   );
 
+
+
+
 //Middlewares
+app.use('/uploads', express.static('uploads'));
 app.use(cors());
 app.use(bodyParser.json());
 app.use("/posts", require("./routers/posts"));
+
+
 
 app.get("/", (req, res) => {
   res.send("Hello World");
