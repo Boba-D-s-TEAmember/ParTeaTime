@@ -6,6 +6,8 @@ import Login from "./views/Login";
 import About from "./views/About";
 import Feed from "./views/Feed";
 import MakePost from "./views/MakePost";
+import BobaQuiz from "./views/BobaQuiz";
+
 import "./App.css";
 import "typeface-gamja-flower";
 import "typeface-open-sans";
@@ -42,6 +44,9 @@ function App(props) {
           </Route>
           <Route exact path="/feed">
             <Feed />
+          </Route>
+          <Route exact path="/BobaQuiz">
+            <BobaQuiz />
           </Route>
           <Route exact path="/">
             <Login />
