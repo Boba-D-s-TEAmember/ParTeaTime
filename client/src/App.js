@@ -3,6 +3,8 @@ import React from "react";
 
 import Login from "./views/Login";
 import "./App.css";
+import "typeface-gamja-flower";
+import "typeface-open-sans";
 
 function App() {
   return (
