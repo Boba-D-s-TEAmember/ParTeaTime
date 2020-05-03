@@ -25,7 +25,7 @@ function App() {
               <Link to="/feed">Feed</Link>
             </li>
             <li>
-              <Link to="/quiz">Quiz</Link>
+              <Link to="/BobaQuiz">BobaQuiz</Link>
             </li>
           </ul>
         </nav>
@@ -33,16 +33,16 @@ function App() {
         {/* A <Switch> looks through its children <Route>s and
           renders the first one that matches the current URL. */}
         <Switch>
-          <Route path="/about">
+          <Route exact path="/about">
             <About />
           </Route>
-          <Route path="/feed">
+          <Route exact path="/feed">
             <Feed />
           </Route>
-          <Route path="/quiz">
+          <Route exact path="/BobaQuiz">
             <BobaQuiz />
           </Route>
-          <Route path="/">
+          <Route exact path="/">
             <Login />
           </Route>
         </Switch>
