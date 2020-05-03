@@ -4,6 +4,8 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const multer = require('multer')
+const uploadImage = require('./helpers/helpers');
+
 
 require("dotenv/config");
 const PORT = process.env.PORT || 8000;
@@ -18,13 +20,22 @@ mongoose.connect(
     }
   );
 
+  const multerMid = multer({
+    storage: multer.memoryStorage(),
+    limits: {
+      // no larger than 5mb.
+      fileSize: 5 * 1024 * 1024,
+    },
+  });
 
 
 
 //Middlewares
-app.use('/uploads', express.static('uploads'));
+app.disable('x-powered-by')
+app.use(multerMid.single('image'));
+// app.use('/uploads', express.static('uploads'));
 app.use(cors());
-app.use(bodyParser.json());
+app.use(bodyParser());
 app.use("/posts", require("./routers/posts"));
 
 

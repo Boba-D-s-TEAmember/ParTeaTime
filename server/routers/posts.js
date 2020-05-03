@@ -2,61 +2,64 @@ const express = require("express");
 const router = express.Router();
 const Post = require("../models/post");
 const mongoose = require("mongoose");
-const multer = require('multer');
+const multer = require("multer");
+const uploadImage = require("../helpers/helpers");
 
 const storage = multer.diskStorage({
-    destination: function(req, file, cb) {
-      cb(null, '../uploads/');
-    },
-    filename: function(req, file, cb) {
-      cb(null, new Date().toISOString() + file.originalname);
-    }
-  });
+  destination: function (req, file, cb) {
+    cb(null, "../uploads/");
+  },
+  filename: function (req, file, cb) {
+    cb(null, new Date().toISOString() + file.originalname);
+  },
+});
 
-  const fileFilter = (req, file, cb) => {
-    // reject a file
-    if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
-      cb(null, true);
-    } else {
-      cb(null, false);
-    }
-  };
-
-  
-  const upload = multer({
-    storage: storage,
-    limits: {
-      fileSize: 1024 * 1024 * 5
-    },
-    fileFilter: fileFilter
-  });
-  
+const fileFilter = (req, file, cb) => {
+  // reject a file
+  if (file.mimetype === "image/jpeg" || file.mimetype === "image/png") {
+    cb(null, true);
+  } else {
+    cb(null, false);
+  }
+};
 
 router.get("/", async (req, res) => {
   const posts = await Post.find();
   res.json(posts);
 });
 
-router.post("/",upload.single('image'), async (req, res) => {
-  const post = new Post({
-    title: req.body.title,
-    caption: req.body.caption,
-    image : `${req.file.path}id:${req.body.title}`
-  });
- console.log(post)
-  const savedPost = await post.save();
-  res.json({
-      message: "Post Created Successfully", 
-      createdProduct:{
-          title: savedPost.title,
-          caption: savedPost.caption, 
-          _id: savedPost._id, 
-          request:{
-              type: 'GET',
-              url:"localhost:8080/posts/"+savedPost._id
-          }
-      }
-  })
+router.post("/", async (req, res) => {
+  try {
+    const myFile = req.file;
+    const imageUrl = await uploadImage(myFile);
+    console.log(req.title);
+
+    const post = new Post({
+      title: req.body.title,
+      caption: req.body.caption,
+      image: imageUrl,
+    });
+
+    console.log(post);
+
+    const savedPost = await post.save();
+
+    res.json({
+      message: "Post Created Successfully && image uploaded",
+      createdPost: {
+        title: savedPost.title,
+        caption: savedPost.caption,
+        image: imageUrl,
+        _id: savedPost._id,
+        request: {
+          type: "GET",
+          url: "localhost:8080/posts/" + savedPost._id,
+        },
+      },
+    });
+  } catch (error) {
+    res.send(error);
+  }
 });
 
 
