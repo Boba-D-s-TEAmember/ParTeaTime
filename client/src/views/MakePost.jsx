@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { Redirect } from 'react-router-dom';
 
 class MakePost extends React.Component {
   constructor(props) {
@@ -46,7 +47,7 @@ class MakePost extends React.Component {
       .catch((err) => {
         console.log(err);
       });
-      
+      return <Redirect to="/"/>
   }
 
   render() {

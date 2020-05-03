@@ -26,7 +26,7 @@ class Feed extends React.Component {
       <div className="container-fluid">
         <div className="row justify-content-md-center">
           <div className="col-md-auto">
-            <h1>This is about us</h1>
+            <h1 className="col-md-auto">Boba Feed</h1>
             {
                 this.state.posts.map(post=>{
                    return <FeedComponent key={post._id} data={post} />
