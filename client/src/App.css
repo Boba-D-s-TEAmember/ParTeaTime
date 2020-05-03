@@ -2,6 +2,43 @@ body {
   background-color: #f1c5ad;
 }
 
+.App-logo {
+  /*animation: spin infinite 20s linear;*/
+  height: 200px;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Gamja+Flower");
+
+.App-header {
+  background-color: #f1c5ad;
+  padding: 20px;
+  color: black;
+  text-align: center;
+  font-family: "Gamja Flower";
+  font-size: xx-large;
+
+}
+
+.questionCount{
+  text-align: center;
+}
+.question{
+  text-align: center;
+}
+.div{
+  text-align: center;
+}
+.answerOptions{
+  text-align: center;
+}
+
+.answerOption{
+  text-align: center;
+}
+.App-intro {
+  font-size: large;
+}
+
 .title {
   font-family: Gamja Flower;
   text-align: center;
