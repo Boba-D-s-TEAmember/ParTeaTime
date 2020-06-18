@@ -2,7 +2,7 @@
 
 This is the server for ParTeaTime.
 
-### Setup
+## Setup
 
 1. Clone the entire ParTeaTime repository to your computer.
 2. Navigate to the `server` folder within the repository.
