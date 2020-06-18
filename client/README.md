@@ -1,3 +1,7 @@
+# ParTeaTime Client
+
+This is the client app for ParTeaTime.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
